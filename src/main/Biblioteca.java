@@ -15,21 +15,30 @@ public class Biblioteca {
 		prestamos = new ArrayList<Prestamo>();
 	}
 	
-	//public void listarRecursosDisponibles() {
+	public void listarRecursosDisponibles() {
 		//System.out.println("   Recursos Disponibles   ");
 		//for (Recurso rec : recursos) {
 			//if (rec.isDisponible()) {
 				//System.out.println(rec);
 			//}
 		//}
-	//}
+	}
 	
-	//public void listarRecursosPrestados() {
+	public void listarRecursosPrestados() {
 		//System.out.println("   Recursos prestados   ");
 		//for (Recurso re : recursos) {
 			//if (!re.isDisponible()) {
 				//System.out.println(re);
 			//}
 		//}
-	//}
+	}
+	
+	public void buscarPorTitulo(String titulo) {
+		//System.out.println("   Busqueda por titulo " + titulo + "   ");
+		//for (Recurso recurso : recursos) {
+			//if(recurso.getTitulo().toLowerCase().contains(titulo.toLowerCase())) {
+				System.out.println(recursos);
+			//}
+		//}
+	}
 }
