@@ -12,7 +12,6 @@ public class Prestamo {
 	private LocalDate fechaDevolucion;
 	private String estado;
 
-	// Constructor básico
 	public Prestamo(Usuarios usuarios, Recurso recurso) {
 		super();
 		this.usuarios = usuarios;
@@ -24,13 +23,13 @@ public class Prestamo {
 
 
 	
-	public static Prestamo registrarNuevoPrestamo(String idUsuario, String idRecurso, ArrayList<Usuarios> listaUsuarios,
+	public static Prestamo registrarNuevoPrestamo(int idUsuario, int idRecurso, ArrayList<Usuarios> listaUsuarios,
 			ArrayList<Recurso> listaRecurso) {
 
 		// Buscar usuario
 		Usuarios usuarioEncontrado = null;
 		for (Usuarios user : listaUsuarios) {
-			if (user.getIdentificador().equals(idUsuario)) {
+			if (user.getId() == (idUsuario)) {
 				usuarioEncontrado = user;
 				break;
 			}
@@ -44,7 +43,7 @@ public class Prestamo {
 		// Buscar recurso
 		Recurso recursoEncontrado = null;
 		for (Recurso recur : listaRecurso) {
-			if (recur.getIdentificador().equals(idRecurso)) {
+			if (recur.getId() == (idRecurso)) {
 				recursoEncontrado = recur;
 				break;
 			}
@@ -55,32 +54,30 @@ public class Prestamo {
 			return null;
 		}
 
-		// Comprobar si ya está prestado
 		if (!recursoEncontrado.isDisponible()) {
 			System.out.println("ERROR: El recurso " + recursoEncontrado.getTitulo() + " ya ha sido prestado");
 			return null;
 		}
 
-		// CAMBIOS AQUÍ: Marcamos como NO disponible y creamos el objeto préstamo
+
 		recursoEncontrado.setDisponible(false);
 		Prestamo nuevoPrestamo = new Prestamo(usuarioEncontrado, recursoEncontrado);
 
 		System.out.println("ÉXITO: Recurso prestado correctamente.");
-		return nuevoPrestamo; // Devolvemos el préstamo creado
+		return nuevoPrestamo; 
 	}
 
-	// 2. REGISTRAR DEVOLUCIÓN (FÁCIL)
+
 	
-	public static boolean devolverRecurso(String idRecurso, ArrayList<Prestamo> listaPrestamos) {
+	public static boolean devolverRecurso(int idRecurso, ArrayList<Prestamo> listaPrestamos) {
 
-		// Buscamos el préstamo que esté ACTIVO para ese recurso
+		
 		for (Prestamo p : listaPrestamos) {
-			if (p.getRecurso().getIdentificador().equals(idRecurso) && p.getEstado().equals("ACTIVO")) {
+			if (p.getRecurso().getId() == (idRecurso) && p.getEstado().equals("ACTIVO")) {
 
-				// Al devolverlo, vuelve a estar disponible
+				
 				p.getRecurso().setDisponible(true);
 
-				// Actualizamos los datos del préstamo
 				p.setEstado("DEVUELTO");
 				p.setFechaDevolucion(LocalDate.now());
 
