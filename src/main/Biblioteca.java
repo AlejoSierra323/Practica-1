@@ -60,4 +60,23 @@ public class Biblioteca {
 			//}	
 		//}
 	}
+	
+	public void recursosPorTipo(String tipo) {
+		//System.out.println("   Recursos del tipo " + tipo + "   ");
+		//for (Recurso r : recursos) {
+			//if (r.getTipo().equalsIgnoreCase(tipo)) {
+				//System.out.println(r);
+			//}
+		//}
+	}
+	
+	public void addUsuario(Usuarios u) {
+		usuarios.add(u);
+	}
+	
+	public void addRecurso(Recurso r) {
+		recursos.add(r);
+	}
+
+
 }
