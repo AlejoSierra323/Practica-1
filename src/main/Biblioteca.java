@@ -2,6 +2,8 @@ package main;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Date;
+
 
 public class Biblioteca {
 	
@@ -78,5 +80,59 @@ public class Biblioteca {
 		recursos.add(r);
 	}
 
+	public void prestar(String idUsuario, String idRecurso) {
+		//Usuarios u = buscarUsuario(idUsuario);
+		//Recurso r = buscarRecurso(idRecurso);
+		//if (u == null || r == null) {
+			//System.out.println("Usuario o recurso inexistente");
+			//return;
+		//}
+		//if (!r.isDisponible()) {
+			//System.out.println("El recurso ya está prestado");
+			//return;
+		//}
+		
+		//r.setDisponible(false);
+		//Prestamo p = new Prestamo(u, r, new Date());
+		//prestamos.add(p);
 
+		//System.out.println("Préstamo realizado: " + p);
+		//}
+	}
+	
+	public void devolver(String idRecurso) {
+		//Recurso r = buscarRecurso(idRecurso);
+		//if (r == null) {
+			//System.out.println("Recurso inexistente");
+			//return;
+		//}
+		//if (r.isDisponible()) {
+			//System.out.println("El recurso no está prestado");
+			//return;
+		//}
+		
+		//for (Prestamo p : prestamos) {
+			//if (p.getRecurso().getId().equals(idRecurso) && p.estaActivo()) {
+				//p.setFechaDevolucion(new Date());
+				//r.setDisponible(true);
+				//System.out.println("Devolución registrada: " + p);
+				//return;
+			//}
+		//}
+		//System.out.println("No se encontró préstamo activo para ese recurso.");
+	}
+	
+	private Usuarios buscarUsuario(String id) {
+		//for (Usuarios u : usuarios) {
+			//if (u.getId().equals(id)) return u;
+		//}
+		return null;
+	}
+	
+	private Recurso buscarRecurso(String id) {
+		//for (Recurso r : recursos) {
+			//if (r.getId().equals(id)) return r;
+		//}
+		return null;
+	}	
 }
