@@ -41,4 +41,23 @@ public class Biblioteca {
 			//}
 		//}
 	}
+	
+	public void prestamosDeUsuario(String idUsuario) {
+		//System.out.println("   Préstamos del usuario " + idUsuario + "   ");
+		//for (Prestamo p : prestamos) {
+			//if (p.getUsuario().getId().equals(idUsuario)) {
+				//System.out.println(p);
+			//}
+		//}
+
+	}
+	
+	public void prestamosActivos() {
+		//System.out.println("   Prestamos activos   ");
+		//for (Prestamo pre : prestamos) {
+			//if(pre.estaActivo()) {
+				//System.out.println(pre);
+			//}	
+		//}
+	}
 }
