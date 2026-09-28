@@ -143,5 +143,23 @@ public class Biblioteca {
 		//usuarios.add(usuario);
 		return true;
 	}
+	public boolean agregarRecurso(Recurso recurso) {
+		//if (buscarRecurso(recurso.getId()) != null) {
+			//System.out.println("Error. Ya existe un recurso con este ID.");
+	        //return false;
+	    //}
+		//recursos.add(recurso);
+		return true;
+	}
+	
+	public boolean eliminarUsuario(String id) {
+		Usuarios usuario = buscarUsuario(id);
+		if (usuario == null) {
+			System.out.println("Error. Usuario inexistente.");
+			return false;
+	    }
+		usuarios.remove(usuario);
+	    return true;
+	}
 
 }
