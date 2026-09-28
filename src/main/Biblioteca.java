@@ -134,5 +134,14 @@ public class Biblioteca {
 			//if (r.getId().equals(id)) return r;
 		//}
 		return null;
-	}	
+	}
+	public boolean agreagrUsuario(Usuarios usuario) {
+		//if (buscarUsuario(usuario.getId()) != null) {
+			//System.out.println("Error. Ya existe un usuario con ese ID.");
+			//return false;
+	//}
+		//usuarios.add(usuario);
+		return true;
+	}
+
 }
