@@ -6,6 +6,7 @@ public abstract class Recurso {
 	protected String titulo;
 	protected int año;
 	protected boolean disponible;
+	protected String tipo;
 
 	public Recurso(int id, String titulo, int año, boolean disponible) {
 		this.id = id;
@@ -44,6 +45,14 @@ public abstract class Recurso {
 
 	public void setDisponible(boolean disponible) {
 		this.disponible = disponible;
+	}
+
+	public String getTipo() {
+		
+		return tipo;
+	}
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
 	}
 
 	
