@@ -29,12 +29,12 @@ public class Prestamo {
 		// Buscar usuario
 		Usuarios usuarioEncontrado = null;
 		for (Usuarios user : listaUsuarios) {
-			if (user.getId() == (idUsuario)) {
+			if (user.getId() == idUsuario) {
 				usuarioEncontrado = user;
 				break;
 			}
 		}
-
+		
 		if (usuarioEncontrado == null) {
 			System.out.println("ERROR : El usuario con ID " + idUsuario + " no ha sido encontrado");
 			return null;

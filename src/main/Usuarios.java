@@ -13,10 +13,10 @@ public class Usuarios {
 		this.correoElectronico = correoElectronico;
 	}
 
+
 	public int getId() {
 		return id;
 	}
-
 	public void setId(int id) {
 		this.id = id;
 	}
@@ -36,5 +36,6 @@ public class Usuarios {
 	public void setCorreoElectronico(String correoElectronico) {
 		this.correoElectronico = correoElectronico;
 	}
+
 
 }
