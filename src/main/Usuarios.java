@@ -10,8 +10,7 @@ public class Usuarios {
 	private int id;
 	private String nombre;
 	private String correoElectronico;
-	 
-	
+
 	public Usuarios(int id, String nombre, String correoElectronico) {
 		super();
 		this.id = id;
@@ -42,6 +41,7 @@ public class Usuarios {
 	public void setCorreoElectronico(String correoElectronico) {
 		this.correoElectronico = correoElectronico;
 	}
+
 	
 	 @Override
 	    public String toString() {
@@ -86,4 +86,5 @@ public class Usuarios {
 	        mapaUsuarios.remove(id);
 	        return true;
 	    }
+
 }
