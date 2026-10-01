@@ -161,5 +161,6 @@ public class Biblioteca {
 		usuarios.remove(usuario);
 	    return true;
 	}
+	
 
 }
