@@ -13,10 +13,10 @@ public class Usuarios {
 		this.correoElectronico = correoElectronico;
 	}
 
-
 	public int getId() {
 		return id;
 	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
@@ -37,5 +37,12 @@ public class Usuarios {
 		this.correoElectronico = correoElectronico;
 	}
 
+	public String toCSV() {
+		return id + ";" + nombre + ";" + correoElectronico;
+	}
 
+	@Override
+	public String toString() {
+		return "Usuario [ID: " + id + " | Nombre: " + nombre + " | Email: " + correoElectronico + "]";
+	}
 }

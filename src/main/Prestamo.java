@@ -1,8 +1,6 @@
-
 package main;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 
 public class Prestamo {
 
@@ -13,7 +11,6 @@ public class Prestamo {
 	private String estado;
 
 	public Prestamo(Usuarios usuarios, Recurso recurso) {
-		super();
 		this.usuarios = usuarios;
 		this.recurso = recurso;
 		this.fechaPrestamo = LocalDate.now();
@@ -21,8 +18,15 @@ public class Prestamo {
 		this.fechaDevolucion = null;
 	}
 
+	public Prestamo(Usuarios usuarios, Recurso recurso, LocalDate fechaPrestamo, LocalDate fechaDevolucion,
+			String estado) {
+		this.usuarios = usuarios;
+		this.recurso = recurso;
+		this.fechaPrestamo = fechaPrestamo;
+		this.fechaDevolucion = fechaDevolucion;
+		this.estado = estado;
+	}
 
-	// Getters y Setters
 	public Usuarios getUsuarios() {
 		return usuarios;
 	}
@@ -62,70 +66,17 @@ public class Prestamo {
 	public void setEstado(String estado) {
 		this.estado = estado;
 	}
-	
-	
-	public static Prestamo registrarNuevoPrestamo(int idUsuario, int idRecurso, ArrayList<Usuarios> listaUsuarios,
-			ArrayList<Recurso> listaRecurso) {
-		
-		// Buscar usuario
-		Usuarios usuarioEncontrado = null;
-		for (Usuarios user : listaUsuarios) {
-			if (user.getId() == idUsuario) {
-				usuarioEncontrado = user;
-				break;
-			}
-		}
-		
-		if (usuarioEncontrado == null) {
-			System.out.println("ERROR : El usuario con ID " + idUsuario + " no ha sido encontrado");
-			return null;
-		}
-		
-		// Buscar recurso
-		Recurso recursoEncontrado = null;
-		for (Recurso recur : listaRecurso) {
-			if (recur.getId() == (idRecurso)) {
-				recursoEncontrado = recur;
-				break;
-			}
-		}
-		
-		if (recursoEncontrado == null) {
-			System.out.println("ERROR El recurso con ID: " + idRecurso + " no ha sido encontrado");
-			return null;
-		}
-		
-		if (!recursoEncontrado.isDisponible()) {
-			System.out.println("ERROR: El recurso " + recursoEncontrado.getTitulo() + " ya ha sido prestado");
-			return null;
-		}
-		
-		
-		recursoEncontrado.setDisponible(false);
-		Prestamo nuevoPrestamo = new Prestamo(usuarioEncontrado, recursoEncontrado);
-		
-		System.out.println("ÉXITO: Recurso prestado correctamente.");
-		return nuevoPrestamo; 
+
+	public String toCSV() {
+		String fDev = (fechaDevolucion != null) ? fechaDevolucion.toString() : "null";
+		return usuarios.getId() + ";" + recurso.getId() + ";" + fechaPrestamo + ";" + fDev + ";" + estado;
 	}
-	
-	
-	public static boolean devolverRecurso(int idRecurso, ArrayList<Prestamo> listaPrestamos) {
-		
-		
-		for (Prestamo p : listaPrestamos) {
-			if (p.getRecurso().getId() == (idRecurso) && p.getEstado().equals("ACTIVO")) {
-				
-				
-				p.getRecurso().setDisponible(true);
-				p.setEstado("DEVUELTO");
-				p.setFechaDevolucion(LocalDate.now());
-				
-				System.out.println("ÉXITO: El recurso '" + p.getRecurso().getTitulo() + "' ha sido devuelto.");
-				return true;
-			}
-		}
-		
-		System.out.println("ERROR: No se encontró ningún préstamo ACTIVO para el recurso con ID: " + idRecurso);
-		return false;
+
+	@Override
+	public String toString() {
+		return "Préstamo [Usuario: " + usuarios.getNombre() + " (ID " + usuarios.getId() + ") | Recurso: '"
+				+ recurso.getTitulo() + "' (ID " + recurso.getId() + ") | Fecha Préstamo: " + fechaPrestamo
+				+ " | Estado: " + estado + " | Devolución: " + (fechaDevolucion != null ? fechaDevolucion : "Pendiente")
+				+ "]";
 	}
 }
