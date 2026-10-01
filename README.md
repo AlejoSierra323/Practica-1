@@ -1,9 +1,9 @@
-# Practica_1 - Sistema de Gestión de Biblioteca
+# Práctica_1 - Sistema de Gestión de Biblioteca
 
 ## Integrantes del Grupo
 * **Iker Albizu**
 * **Nerea Fresnedo**
-* **Ibai Lopez de Lerena**
+* **Ibai López de Lerena**
 * **Alejandro Sierra**
 ---
 ## Descripción Breve y Funcionalidades
@@ -22,7 +22,7 @@ El diseño del software sigue una arquitectura orientada a objetos organizada de
 * **`Biblioteca` (Clase Principal / `Main`):** Punto de entrada de la aplicación y orquestador central del sistema. Conecta e interactúa con el resto de las clases del programa.
 * **`Recursos` (Clase Base / Herencia):** Clase abstracta/padre que define los atributos y comportamientos comunes para los distintos elementos de la biblioteca:
   * `Libro`
-  * `Pelicula`
+  * `Película`
   * `Videojuego`
 * **`Usuario`:** Clase encargada de la gestión y representación de los usuarios dentro del sistema.
 * **`Prestamo`:** Clase encargada de gestionar la lógica de los préstamos, conectando los recursos solicitados con sus respectivos usuarios.
