@@ -22,7 +22,7 @@ El diseño del software sigue una arquitectura orientada a objetos organizada de
 * **`Biblioteca` (Clase Principal / `Main`):** Punto de entrada de la aplicación y orquestador central del sistema. Conecta e interactúa con el resto de las clases del programa.
 * **`Recursos` (Clase Base / Herencia):** Clase abstracta/padre que define los atributos y comportamientos comunes para los distintos elementos de la biblioteca:
   * `Libro`
-  * `Película`
+  * `Pelicula`
   * `Videojuego`
 * **`Usuario`:** Clase encargada de la gestión y representación de los usuarios dentro del sistema.
 * **`Prestamo`:** Clase encargada de gestionar la lógica de los préstamos, conectando los recursos solicitados con sus respectivos usuarios.
@@ -51,7 +51,7 @@ El diseño del software sigue una arquitectura orientada a objetos organizada de
   * Supervisión y resolución de fusiones (*merges*) de código.
   * Desarrollo e implementación de la funcionalidad de consultas.
 
-* **Ibai Lopez de Lerena:**
+* **Ibai López de Lerena:**
   * Diseño e implementación de la clase `Prestamo` junto con sus métodos correspondientes.
 
 * **Nerea Fresnedo:**
