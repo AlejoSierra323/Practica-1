@@ -4,14 +4,13 @@ public abstract class Recurso {
 
 	protected int id;
 	protected String titulo;
-	protected int año;
+	protected int anio;
 	protected boolean disponible;
-	protected String tipo;
 
-	public Recurso(int id, String titulo, int año, boolean disponible) {
+	public Recurso(int id, String titulo, int anio, boolean disponible) {
 		this.id = id;
 		this.titulo = titulo;
-		this.año = año;
+		this.anio = anio;
 		this.disponible = disponible;
 	}
 
@@ -27,16 +26,16 @@ public abstract class Recurso {
 		return titulo;
 	}
 
-	public void setTitulo(String nombre) {
-		this.titulo = nombre;
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
 	}
 
-	public int getAño() {
-		return año;
+	public int getAnio() {
+		return anio;
 	}
 
-	public void setAño(int año) {
-		this.año = año;
+	public void setAnio(int anio) {
+		this.anio = anio;
 	}
 
 	public boolean isDisponible() {
@@ -47,14 +46,13 @@ public abstract class Recurso {
 		this.disponible = disponible;
 	}
 
-	public String getTipo() {
-		
-		return tipo;
-	}
-	public void setTipo(String tipo) {
-		this.tipo = tipo;
-	}
+	public abstract String getTipo();
 
-	
-	}
+	public abstract String toCSV();
 
+	@Override
+	public String toString() {
+		return "[" + getTipo() + "] ID: " + id + " | Título: '" + titulo + "' | Año: " + anio + " | Estado: "
+				+ (disponible ? "Disponible" : "Prestado");
+	}
+}
