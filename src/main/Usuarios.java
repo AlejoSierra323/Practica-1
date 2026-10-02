@@ -51,8 +51,7 @@ public class Usuarios {
 
 	 public boolean crearUsuario(int id, String nombre, String correo) {
 	        if (mapaUsuarios.containsKey(id)) {
-	            System.out.println("Ya existe un usuario con el identificador: " + id);
-	            return false;
+	            throw new IllegalArgumentException("Ya existe un usuario con el identificador: " + id);
 	        }
 	        Usuarios nuevo = new Usuarios(id, nombre, correo);
 	        mapaUsuarios.put(id, nuevo);
@@ -60,6 +59,9 @@ public class Usuarios {
 	    }
 
 	    public Usuarios buscarUsuario(int id) {
+	        if (!mapaUsuarios.containsKey(id)) {
+	            throw new IllegalArgumentException("No se encontró el usuario con ID: " + id);
+	        }
 	        return mapaUsuarios.get(id); 
 	    }
 
@@ -68,11 +70,12 @@ public class Usuarios {
 	    }
 
 	    public boolean modificarUsuario(int id, String nuevoNombre, String nuevoCorreo) {
-	        Usuarios usuario = buscarUsuario(id);
-	        if (usuario == null) {
-	            System.out.println("No se encontró el usuario con ID: " + id);
-	            return false;
+	        Usuarios usuario = buscarUsuario(id); 
+	        
+	        if (nuevoNombre == null || nuevoNombre.trim().isEmpty() || nuevoCorreo == null || nuevoCorreo.trim().isEmpty()) {
+	            throw new IllegalArgumentException("El nombre y el correo no pueden estar vacíos.");
 	        }
+	        
 	        usuario.setNombre(nuevoNombre);
 	        usuario.setCorreoElectronico(nuevoCorreo);
 	        return true;
@@ -80,11 +83,11 @@ public class Usuarios {
 
 	    public boolean eliminarUsuario(int id) {
 	        if (!mapaUsuarios.containsKey(id)) {
-	            System.out.println("No existe el usuario con ID: " + id);
-	            return false;
+	            throw new IllegalArgumentException("No existe el usuario con ID: " + id);
 	        }
 	        mapaUsuarios.remove(id);
 	        return true;
 	    }
 
 }
+
